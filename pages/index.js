@@ -3,8 +3,7 @@ import Sidebar from "@/components/Sidebar";
 import Widgets from "@/components/Widgets";
 import Head from "next/head";
 
-
-export default function Home() {
+export default function Home({newsResults}) {
   return (
     <div>
       <Head>
@@ -15,21 +14,33 @@ export default function Home() {
 
       <main className="flex min-h-screen max-w-7xl mx-auto">
         {/* Sidebar */}
-      <Sidebar />
+        <Sidebar />
 
-      {/* Feed */}
+        {/* Feed */}
 
-      <Feed />
+        <Feed />
 
-      {/* Widgets */}
+        {/* Widgets */}
 
-      <Widgets />
+        <Widgets newsResults={newsResults.articles} />
 
-      {/* Modal */}
+        {/* Modal */}
       </main>
-
-      
-     
     </div>
   );
+}
+
+//https://saurav.tech/NewsAPI/top-headlines/category/business/us.json
+
+export async function getServerSideProps(){
+  
+  /* This api call is done on the server making it fast irrespective of user computer */
+  const newsResults = await fetch ("https://saurav.tech/NewsAPI/top-headlines/category/business/us.json").then((res) => res.json());
+  const cars = {};
+  return {
+    props: {
+      newsResults,
+      cars
+    }
+  }
 }
