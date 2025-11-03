@@ -18,7 +18,7 @@ export default function Widgets({ newsResults, randomUsersResults }) {
         </div>
       </div>
 
-      <div className="text-gray-700 space-y-3 bg-gray-100 rounded-xl pt-2 w-[90%] xl:w-[75%]">
+      <div className="text-gray-700 space-y-3 bg-gray-100 rounded-xl pt-2 w-[90%] xl:w-[85%]">
         <h4 className="font-bold text-xl px-4">What's happening</h4>
         {newsResults.slice(0, articleNum).map((article) => (
           <News key={article.title} article={article} />
@@ -31,7 +31,7 @@ export default function Widgets({ newsResults, randomUsersResults }) {
         </button>
         {/* <button onClick={() => setArticleNum(articleNum - 3 >= 3 ? articleNum - 3 : articleNum - 0 )} className="text-blue-300 pl-4 pb-3 hover:text-blue-400">Show less</button> */}
       </div>
-      <div className="sticky top-16 text-gray-700 space-y-3 bg-gray-100 rounded-xl pt-2 w-[90%] xl:w-[75%]">
+      <div className="sticky top-16 text-gray-700 space-y-3 bg-gray-100 rounded-xl pt-2 w-[90%] xl:w-[85%]">
         <h4 className="font-bold text-xl px-4">Who to follow</h4>
         {randomUsersResults.slice(0,randomUserNum).map((randomUser) => (
           <div key={randomUser.login.username} className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-200">
